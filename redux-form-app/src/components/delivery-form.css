@@ -1,0 +1,6 @@
+.form-input input,
+.form-input select,
+.form-input textarea{
+  display:block;
+  margin-bottom: 20px;
+}
