@@ -18,7 +18,7 @@ export class DeliveryForm extends Component{
         <div className="message message-success">
           Issue submitted successfully
         </div>
-      )
+      );
     }
     if(this.props.error){
       console.log('error detected');
@@ -26,7 +26,7 @@ export class DeliveryForm extends Component{
         <div className="message message-error">
           {this.props.error}
         </div>
-      )
+      );
     }
     
     return (
@@ -46,7 +46,7 @@ export class DeliveryForm extends Component{
             element="input"
             type="text"
             validate={[required, nonEmpty, exactIdLength, isNumber]}
-            ></Field>
+          ></Field>
         
           <Field id="issue"
             name="issue"
@@ -54,7 +54,7 @@ export class DeliveryForm extends Component{
             component={Input}
             element="select"
             validate={[required]}
-            >
+          >
             <option>Select issue</option>
             <option value="not-delivered">My delivery hasn't arrived</option>
             <option value="wrong-item">The wrong item was delivered</option>
