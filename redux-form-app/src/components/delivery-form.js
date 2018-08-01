@@ -2,32 +2,31 @@ import React, {Component} from 'react';
 import './delivery-form.css';
 import {reduxForm, Field} from 'redux-form';
 
-export default class DeliveryForm extends Component{
-
+export class DeliveryForm extends Component{
   render(){
     return (
-      <div class="form-container">
+      <div className="form-container">
         <h2>Report a problem with your delivery</h2>
-        <form class="delivery-form">
-          <div class="form-input">
-            <label for="tracking-number">Tracking Number</label>
-            <input id="tracking-number" name="tracking-number"></input>
+        <form className="delivery-form">
+          <div className="form-input">
+            <label htmlFor="tracking-number">Tracking Number</label>
+            <Field id="tracking-number" name="tracking-number"></Field>
           </div>
 
-          <div class="form-input">  
-            <label for="issue-description">What is your issue?</label>
-            <select id="issue-description" name="tracking-number">
+          <div className="form-input">  
+            <label htmlFor="issue-description">What is your issue?</label>
+            <Field id="issue-description" name="tracking-number">
               <option value="not-delivered">My delivery hasn't arrived</option>
               <option value="wrong-item">The wrong item was delivered</option>
               <option value="missing-part">Part of my order was missing</option>
               <option value="damaged">Some of my order arrived damaged</option>
               <option value="other">Other (give details below)</option>
-            </select>
+            </Field>
           </div>
 
-          <div class="form-input">
-            <label for="details">Give more details (optional)</label>
-            <textarea id="details" name="details"></textarea>
+          <div className="form-input">
+            <label htmlFor="details">Give more details (optional)</label>
+            <Field id="details" name="details"></Field>
           </div>
 
           <button>Submit</button>
@@ -36,3 +35,7 @@ export default class DeliveryForm extends Component{
     );
   }
 }
+
+export default reduxForm({
+  form: 'register'
+})(DeliveryForm)
