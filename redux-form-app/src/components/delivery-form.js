@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './delivery-form.css';
 import {reduxForm, Field} from 'redux-form';
+import Input from './input';
 
 export class DeliveryForm extends Component{
   render(){
@@ -9,13 +10,11 @@ export class DeliveryForm extends Component{
         <h2>Report a problem with your delivery</h2>
         <form className="delivery-form">
           <div className="form-input">
-            <label htmlFor="tracking-number">Tracking Number</label>
-            <Field id="tracking-number" name="tracking-number"></Field>
+            <Field id="tracking-number" name="tracking-number" label="Tracking Number" component={Input} element="input" type="text"></Field>
           </div>
 
           <div className="form-input">  
-            <label htmlFor="issue-description">What is your issue?</label>
-            <Field id="issue-description" name="tracking-number">
+            <Field id="issue-description" name="tracking-number" label="What is your issue?" component={Input} element="select">
               <option value="not-delivered">My delivery hasn't arrived</option>
               <option value="wrong-item">The wrong item was delivered</option>
               <option value="missing-part">Part of my order was missing</option>
@@ -25,8 +24,7 @@ export class DeliveryForm extends Component{
           </div>
 
           <div className="form-input">
-            <label htmlFor="details">Give more details (optional)</label>
-            <Field id="details" name="details"></Field>
+            <Field id="details" name="details" label="Give more details (optional)" component={Input} element="textarea" type="text"></Field>
           </div>
 
           <button>Submit</button>
@@ -38,4 +36,4 @@ export class DeliveryForm extends Component{
 
 export default reduxForm({
   form: 'register'
-})(DeliveryForm)
+})(DeliveryForm);
